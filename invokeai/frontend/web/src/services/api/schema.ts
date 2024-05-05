@@ -12514,6 +12514,8 @@ export type operations = {
         is_intermediate?: boolean | null;
         /** @description The board id to filter by. Use 'none' to find images without a board. */
         board_id?: string | null;
+        /** @filter The filter to */
+        filter?: string|null;
         /** @description The page offset */
         offset?: number;
         /** @description The number of images per page */

@@ -55,21 +55,21 @@ export const imagesApi = api.injectEndpoints({
         url: getListImagesUrl(queryArgs),
         method: 'GET',
       }),
-      providesTags: (result, error, { board_id, categories }) => [
+      providesTags: (result, error, { board_id, categories, filter }) => [
         // Make the tags the same as the cache key
-        { type: 'ImageList', id: getListImagesUrl({ board_id, categories }) },
+        { type: 'ImageList', id: getListImagesUrl({ board_id, categories , filter}) },
         'FetchOnReconnect',
       ],
       serializeQueryArgs: ({ queryArgs }) => {
         // Create cache & key based on board_id and categories - skip the other args.
         // Offset is the size of the cache, and limit is always the same. Both are provided by
         // the consumer of the query.
-        const { board_id, categories } = queryArgs;
+        const { board_id, categories, filter } = queryArgs;
 
         // Just use the same fn used to create the url; it makes an understandable cache key.
         // This cache key is the same for any combo of board_id and categories, doesn't change
         // when offset & limit change.
-        const cacheKey = getListImagesUrl({ board_id, categories });
+        const cacheKey = getListImagesUrl({ board_id, categories, filter});
         return cacheKey;
       },
       transformResponse(response: OffsetPaginatedResults_ImageDTO_) {

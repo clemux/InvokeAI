@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Flex, Tab, TabList, Tabs, useDisclosure, VStack } from '@invoke-ai/ui-library';
+import {Box, Button, ButtonGroup, Flex, Input, Tab, TabList, Tabs, useDisclosure, VStack} from '@invoke-ai/ui-library';
 import { useStore } from '@nanostores/react';
 import { $galleryHeader } from 'app/store/nanostores/galleryHeader';
 import { useAppDispatch, useAppSelector } from 'app/store/storeHooks';
@@ -12,6 +12,7 @@ import BoardsList from './Boards/BoardsList/BoardsList';
 import GalleryBoardName from './GalleryBoardName';
 import GallerySettingsPopover from './GallerySettingsPopover';
 import GalleryImageGrid from './ImageGrid/GalleryImageGrid';
+import ImagesFilter from "features/gallery/components/ImagesFilter";
 
 const ImageGalleryContent = () => {
   const { t } = useTranslation();
@@ -34,6 +35,9 @@ const ImageGalleryContent = () => {
     <VStack layerStyle="first" flexDirection="column" h="full" w="full" borderRadius="base" p={2}>
       {galleryHeader}
       <Box w="full">
+        <Box>
+          <ImagesFilter />
+        </Box>
         <Flex ref={resizeObserverRef} alignItems="center" justifyContent="space-between" gap={2}>
           <GalleryBoardName isOpen={isBoardListOpen} onToggle={onToggleBoardList} />
           <GallerySettingsPopover />
