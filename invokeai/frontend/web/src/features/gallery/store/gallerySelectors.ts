@@ -12,6 +12,7 @@ export const selectListImagesQueryArgs = createMemoizedSelector(
   selectGallerySlice,
   (gallery): ListImagesArgs => ({
     board_id: gallery.selectedBoardId,
+    filter: gallery.imagesFilterText,
     categories: gallery.galleryView === 'images' ? IMAGE_CATEGORIES : ASSETS_CATEGORIES,
     offset: gallery.offset,
     limit: gallery.limit,

@@ -196,6 +196,7 @@ class ImageService(ImageServiceABC):
         categories: Optional[list[ImageCategory]] = None,
         is_intermediate: Optional[bool] = None,
         board_id: Optional[str] = None,
+        filter: Optional[str] = None,
     ) -> OffsetPaginatedResults[ImageDTO]:
         try:
             results = self.__invoker.services.image_records.get_many(
@@ -205,6 +206,7 @@ class ImageService(ImageServiceABC):
                 categories,
                 is_intermediate,
                 board_id,
+                filter,
             )
 
             image_dtos = [

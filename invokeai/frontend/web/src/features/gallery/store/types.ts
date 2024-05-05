@@ -17,6 +17,7 @@ export type GalleryState = {
   selectedBoardId: BoardId;
   galleryView: GalleryView;
   boardSearchText: string;
+  imagesFilterText: string;
   offset: number;
   limit: number;
   alwaysShowImageSizeBadge: boolean;

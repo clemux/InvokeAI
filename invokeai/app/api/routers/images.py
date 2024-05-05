@@ -297,6 +297,7 @@ async def list_image_dtos(
         default=None,
         description="The board id to filter by. Use 'none' to find images without a board.",
     ),
+    filter: Optional[str] = Query(default=None, description="The filter string to search for in image metadata."),
     offset: int = Query(default=0, description="The page offset"),
     limit: int = Query(default=10, description="The number of images per page"),
 ) -> OffsetPaginatedResults[ImageDTO]:
@@ -309,6 +310,7 @@ async def list_image_dtos(
         categories,
         is_intermediate,
         board_id,
+        filter,
     )
 
     return image_dtos

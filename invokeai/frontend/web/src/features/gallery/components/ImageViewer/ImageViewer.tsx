@@ -26,7 +26,7 @@ const exit: AnimationProps['exit'] = {
   transition: { duration: 0.07 },
 };
 
-const VIEWER_ENABLED_TABS: InvokeTabName[] = ['canvas', 'generation', 'workflows'];
+const VIEWER_ENABLED_TABS: InvokeTabName[] = ['canvas', 'generation', 'workflows', 'gallery'];
 
 export const ImageViewer = memo(() => {
   const { isOpen, onToggle, onClose } = useImageViewer();

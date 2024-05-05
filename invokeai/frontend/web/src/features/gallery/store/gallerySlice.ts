@@ -20,6 +20,7 @@ const initialGalleryState: GalleryState = {
   selectedBoardId: 'none',
   galleryView: 'images',
   boardSearchText: '',
+  imagesFilterText: '',
   limit: INITIAL_IMAGE_LIMIT,
   offset: 0,
   isImageViewerOpen: false,
@@ -64,6 +65,9 @@ export const gallerySlice = createSlice({
     },
     boardSearchTextChanged: (state, action: PayloadAction<string>) => {
       state.boardSearchText = action.payload;
+    },
+    imagesFilterTextChanged: (state, action: PayloadAction<string>) => {
+      state.imagesFilterText = action.payload;
     },
     moreImagesLoaded: (state) => {
       if (state.offset === 0 && state.limit === INITIAL_IMAGE_LIMIT) {
@@ -118,6 +122,7 @@ export const {
   galleryViewChanged,
   selectionChanged,
   boardSearchTextChanged,
+  imagesFilterTextChanged,
   moreImagesLoaded,
   alwaysShowImageSizeBadgeChanged,
   isImageViewerOpenChanged,
